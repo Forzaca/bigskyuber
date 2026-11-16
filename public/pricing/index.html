@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pricing · Big Sky Uber</title>
+  <meta name="description" content="Big Sky Economy pricing: Uber, Uber Premium and Uber Black. Simple flat ranges in in-game cash.">
+  <meta name="theme-color" content="#0c0c0e">
+  <link rel="icon" href="/assets/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/css/site.css?v=2">
+</head>
+<body data-page="pricing">
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="top" id="top"></header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal">Pricing</span>
+        <h1 class="h1" style="margin-top:20px"><span data-split>The Big Sky</span><br><span class="chrome-x reveal" style="--d:200ms">Economy.</span></h1>
+        <p class="lede reveal" style="--d:300ms">Three classes, one flat range each, paid in in-game cash. Your driver sets the final fare inside the range based on how far you go. No surge pricing, ever.</p>
+        <div class="econ reveal" style="--d:400ms">
+          <span class="pill"><span class="dot white"></span>In-game currency only</span>
+          <span class="pill"><span class="dot white"></span>Pay on arrival</span>
+          <span class="pill"><span class="dot white"></span>No surge</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="classes" style="padding-bottom:20px">
+      <div class="classes" id="price-cards"></div>
+    </section>
+
+    <section class="section" id="estimate">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">Fare estimator</span>
+          <h2 class="h2" data-split>What will my ride cost?</h2>
+        </div>
+        <div class="estimator">
+          <div class="card pad-lg reveal">
+            <div class="field">
+              <span class="label">Class</span>
+              <div class="seg" id="e-class"></div>
+            </div>
+            <div class="field" style="margin-top:22px">
+              <span class="label">Trip length</span>
+              <div class="seg" id="e-trip"></div>
+            </div>
+            <p class="hint" style="margin-top:20px">Local trips land near the bottom of the range, county-wide trips near the top. Your driver confirms the final number when you arrive.</p>
+          </div>
+          <div class="card pad-lg est-out reveal" style="--d:100ms">
+            <div><span class="muted" style="font-weight:600;font-size:14px">Estimated fare</span></div>
+            <div>
+              <div class="big" id="e-out">$—</div>
+              <div class="range" id="e-range"></div>
+            </div>
+            <a class="btn" style="background:#000;color:#fff;align-self:flex-start;box-shadow:none" id="e-go" href="/ride">Request this ride</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">Compare</span>
+          <h2 class="h2" data-split>Side by side.</h2>
+        </div>
+        <div class="table-scroll reveal">
+          <table class="compare">
+            <thead><tr><th></th><th>Uber</th><th>Uber Premium</th><th>Uber Black</th></tr></thead>
+            <tbody id="compare-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap narrow">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">Questions</span>
+          <h2 class="h2" data-split>Paying for your ride.</h2>
+        </div>
+        <div class="faq reveal">
+          <details><summary>How do I pay?</summary><p>In-game cash, handed to your driver when you reach your destination. Big Sky Uber never takes real money, Robux, or anything outside the game.</p></details>
+          <details><summary>Who decides the final fare?</summary><p>Your driver, inside your class’s range. Short local hops sit near the minimum, long county-wide trips near the maximum. The estimate you see when booking is a good guide.</p></details>
+          <details><summary>What if I can’t pay?</summary><p>Don’t book a ride you can’t afford. Skipping a fare is a breach of the <a href="/guidelines" style="text-decoration:underline">rider guidelines</a> and can get you banned from requesting rides.</p></details>
+          <details><summary>Can I tip?</summary><p>Tips are always welcome in-game, but never expected. They don’t change your recorded fare.</p></details>
+          <details><summary>Why is Uber Black so much more?</summary><p>Uber Black is our executive tier: black cars only, our best-rated drivers, and door-to-door service. It’s priced at $500–$1,000 per trip to match.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="/js/map.js?v=2"></script>
+  <script src="/js/core.js?v=2"></script>
+  <script src="/js/pricing.js?v=2"></script>
+</body>
+</html>

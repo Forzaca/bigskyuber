@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Request a ride · Big Sky Uber</title>
+  <meta name="description" content="Request a Big Sky Uber ride in ER:LC. Sign in with Discord, enter your Roblox username and location, and track your driver live.">
+  <meta name="theme-color" content="#0c0c0e">
+  <link rel="icon" href="/assets/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/css/site.css?v=2">
+</head>
+<body data-page="ride">
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="top" id="top"></header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="eyebrow reveal"><span class="dot green pulse"></span><span><b data-online>–</b> drivers online</span></span>
+        <h1 class="h1" data-split style="margin-top:20px">Where to?</h1>
+        <p class="lede reveal">Tell us who and where you are in-game. A Big Sky driver accepts, you watch them come to you, and you pay the fare in-game when you arrive.</p>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-bottom:80px">
+      <div class="ride-layout">
+        <div>
+          <div id="ride-notice"></div>
+          <div class="locked" id="ride-locked">
+            <form class="card pad-lg" id="ride-form" novalidate>
+              <div class="form-section">
+                <h3><span class="n">1</span>You</h3>
+                <div class="field-row r-21">
+                  <div class="field">
+                    <label for="roblox">Roblox username <small>exact spelling</small></label>
+                    <div class="input-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+                      <input class="input" id="roblox" name="roblox" autocomplete="off" spellcheck="false" maxlength="20" placeholder="e.g. BigSkyRider_22" required>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Passengers</label>
+                    <div class="stepper"><button type="button" data-step="-1" aria-label="Fewer passengers">−</button><output id="pax">1</output><button type="button" data-step="1" aria-label="More passengers">+</button></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h3><span class="n">2</span>Route</h3>
+                <datalist id="erlc-places"></datalist>
+                <div class="route-fields">
+                  <div class="route-row">
+                    <div class="field">
+                      <label for="pickup">Pickup location</label>
+                      <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+                        <input class="input" id="pickup" maxlength="120" list="erlc-places" autocomplete="off" placeholder="e.g. Gas-N-Go (River City)" required>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="pickupPostal">Postal <small>optional</small></label>
+                      <input class="input" id="pickupPostal" inputmode="numeric" maxlength="5" placeholder="200">
+                    </div>
+                  </div>
+                  <div class="route-row">
+                    <div class="field">
+                      <label for="dropoff">Drop-off location</label>
+                      <div class="input-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+                        <input class="input" id="dropoff" maxlength="120" list="erlc-places" autocomplete="off" placeholder="e.g. Liberty County Hospital" required>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="dropoffPostal">Postal <small>optional</small></label>
+                      <input class="input" id="dropoffPostal" inputmode="numeric" maxlength="5" placeholder="404">
+                    </div>
+                  </div>
+                </div>
+                <p class="hint" style="margin-top:10px">Start typing an ER:LC landmark (Civilian Spawn, Shopping Outlet, Downtown Springfield…) and we’ll fill in the postal. Any street or address works too.</p>
+              </div>
+
+              <div class="form-section">
+                <h3><span class="n">3</span>Ride class</h3>
+                <div class="class-pick" id="class-pick"></div>
+              </div>
+
+              <div class="form-section">
+                <h3><span class="n">4</span>Trip length</h3>
+                <div class="seg" id="trip-seg"></div>
+                <p class="hint" style="margin-top:10px">Your driver sets the final fare inside the class range when you arrive.</p>
+              </div>
+
+              <div class="form-section">
+                <h3><span class="n">5</span>Anything else?</h3>
+                <div class="field">
+                  <label for="notes">Notes for your driver <small>optional</small></label>
+                  <textarea class="textarea" id="notes" maxlength="300" placeholder="e.g. I'm by the pumps at the Gas-N-Go on Freedom Avenue, red jacket."></textarea>
+                </div>
+                <label class="check" style="margin-top:18px"><input type="checkbox" id="agree"><span>I’ll be in-game at my pickup, I’ll pay the fare in in-game cash, and I agree to the <a href="/guidelines" target="_blank">rider guidelines</a> and <a href="/terms" target="_blank">terms</a>.</span></label>
+              </div>
+
+              <div class="summary-bar glass">
+                <div class="est"><span id="est">$—</span><small id="est-range">Estimated fare</small></div>
+                <button class="btn" type="submit" id="submit">Request ride</button>
+              </div>
+            </form>
+            <div class="locked-overlay" id="signin-overlay" hidden>
+              <div class="signin glass">
+                <div class="lock"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.7 19.7 0 0 0 15.4 3l-.6 1.3a18.3 18.3 0 0 0-5.6 0L8.6 3a19.6 19.6 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1A19.9 19.9 0 0 0 6.1 21l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4a12.7 12.7 0 0 1-2 1l1.3 2a19.8 19.8 0 0 0 6-3c.5-5.2-.9-9.7-3.6-13.6ZM8 15.3c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.4 8 10.4s2.2 1.1 2.2 2.5-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.5 2.2-2.5 2.2 1.1 2.2 2.5-1 2.4-2.2 2.4Z"/></svg></div>
+                <h2>Sign in to ride</h2>
+                <p>We use your Discord account so drivers know who they’re picking up and you can track your trip.</p>
+                <a class="btn discord block" id="signin-btn" href="/api/auth/login?next=/ride">Sign in with Discord</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="active-ride" hidden></div>
+        </div>
+
+        <aside class="ride-side">
+          <div id="ride-phone"></div>
+          <p class="hint" id="phone-caption" style="text-align:center;max-width:300px">Live preview of your trip.</p>
+        </aside>
+      </div>
+
+      <div id="history" style="margin-top:80px">
+        <div class="section-head" style="margin-bottom:24px">
+          <h2 class="h3">Your rides</h2>
+          <p class="muted" style="margin-top:6px">Your last 30 trips. Rate completed rides to help drivers out.</p>
+        </div>
+        <div class="ride-list" id="ride-list"><div class="empty">Sign in to see your rides.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="/js/map.js?v=2"></script>
+  <script src="/js/core.js?v=2"></script>
+  <script src="/js/ride.js?v=2"></script>
+</body>
+</html>
