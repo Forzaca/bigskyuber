@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Big Sky Uber · Rides across Liberty County</title>
+  <meta name="description" content="Big Sky Uber is the ride service of the Big Sky ER:LC roleplay community. Request a ride with Discord, track your driver live and pay in-game.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Big Sky Uber">
+  <meta property="og:title" content="Big Sky Uber">
+  <meta property="og:description" content="Request a ride with Discord, track your driver live, pay in-game.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="/css/site.css?v=1">
+</head>
+<body data-page="home" class="has-hero">
+  <div class="ambient" aria-hidden="true"></div>
+  <header class="top" id="top"></header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow reveal"><span class="dot green pulse"></span><span><b data-online>–</b> drivers online in Liberty County</span></span>
+          <h1 class="wordmark" aria-label="Uber Big Sky">
+            <span class="w1 chrome reveal" style="--d:60ms">Uber</span>
+            <span class="w2 reveal" style="--d:180ms"><span class="bar" aria-hidden="true"></span><span class="chrome-x">Big Sky</span></span>
+          </h1>
+          <p class="lede reveal" style="--d:300ms">The ride service of the Big Sky ER:LC community. Request with Discord, watch your driver come to you, and pay in-game cash when you arrive.</p>
+          <div class="hero-actions reveal" style="--d:400ms">
+            <a class="btn lg" href="/ride">Request a ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn lg ghost" href="/pricing">See pricing</a>
+          </div>
+          <div class="hero-meta reveal" style="--d:500ms">
+            <span class="pill"><span class="star-on" style="width:14px;height:14px;display:inline-grid"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8Z"/></svg></span><b data-rating>–</b>&nbsp;rider rating</span>
+            <span class="pill"><b data-completed>–</b>&nbsp;trips completed</span>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal" style="--d:160ms">
+          <div class="hero-ring" aria-hidden="true"></div>
+          <div class="hero-ring r2" aria-hidden="true"></div>
+          <div id="hero-phone"></div>
+          <div class="float-card glass fc1 bob"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b data-fc-eta>2 min away</b><span>Your driver is on the way</span></span></div>
+          <div class="float-card glass fc2 bob d2"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><span><b>Uber Black</b><span data-fc-black>$500 – $1,000</span></span></div>
+          <div class="float-card glass fc3 bob d3"><span class="fi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9L12 2.8Z"/></svg></span><span><b>Rated 5 stars</b><span>“Smoothest ride in the county”</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>River City</span><span>Uber Premium</span><span>Springfield</span><span>Uber Black</span><span>Fairview</span><span>Live tracking</span><span>Industrial Zone</span><span>Highway 55</span><span>Pay in-game</span>
+        <span>River City</span><span>Uber Premium</span><span>Springfield</span><span>Uber Black</span><span>Fairview</span><span>Live tracking</span><span>Industrial Zone</span><span>Highway 55</span><span>Pay in-game</span>
+      </div>
+    </div>
+
+    <!-- How it works (scroll-driven) -->
+    <section class="scrolly" id="how">
+      <div class="scrolly-stick">
+        <div class="wrap scrolly-grid">
+          <div class="scrolly-copy">
+            <span class="eyebrow plain">How it works</span>
+            <h2 class="h2" data-split>Four taps from the curb to your door.</h2>
+            <p class="lede reveal">Scroll to ride along. Every trip is traced live, so you always know where your driver is.</p>
+            <div class="scroll-meter" aria-hidden="true"><i id="scroll-meter"></i></div>
+          </div>
+          <div id="scrolly-phone"></div>
+          <div class="steps" id="steps">
+            <div class="step on" data-step="0"><span class="n">1</span><b>Sign in &amp; request</b><p>Sign in with Discord, drop your Roblox username, pickup and destination.</p></div>
+            <div class="step" data-step="1"><span class="n">2</span><b>Get matched</b><p>An on-duty Big Sky driver accepts and you see their name, car and plate.</p></div>
+            <div class="step" data-step="2"><span class="n">3</span><b>Track them in</b><p>Watch the route trace in as your driver heads to your postal.</p></div>
+            <div class="step" data-step="3"><span class="n">4</span><b>Ride, pay, rate</b><p>Pay the fare in-game when you arrive, then rate your driver.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Classes -->
+    <section class="section" id="classes">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">The Big Sky Economy</span>
+          <h2 class="h2" data-split>Three classes. Simple prices.</h2>
+          <p class="lede reveal">Every fare is a flat range in in-game cash. No surge, no surprises. Pick the ride that fits the moment.</p>
+        </div>
+        <div class="classes" id="class-cards"></div>
+      </div>
+    </section>
+
+    <!-- Coverage -->
+    <section class="section" id="coverage-section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">Coverage</span>
+          <h2 class="h2" data-split>Every postal in Liberty County.</h2>
+          <p class="lede reveal">River City to Springfield, the Industrial Zone to Fairview. If it’s on the ER:LC map, we’ll pick you up there.</p>
+        </div>
+        <div class="areas" id="coverage"></div>
+      </div>
+    </section>
+
+    <!-- Stats (inverted white band) -->
+    <section class="section invert">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow plain reveal">By the numbers</span>
+          <h2 class="h2 chrome" data-split>Liberty County runs on Big Sky.</h2>
+        </div>
+        <div class="big-stats reveal">
+          <div class="big-stat"><b data-count="completed">0</b><span>Trips completed</span></div>
+          <div class="big-stat"><b data-count="online">0</b><span>Drivers online now</span></div>
+          <div class="big-stat"><b data-count="rating">0</b><span>Average rider rating</span></div>
+          <div class="big-stat"><b>3</b><span>Ride classes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live drivers -->
+    <section class="section" id="live">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow reveal"><span class="dot green pulse"></span>Live</span>
+          <h2 class="h2" data-split style="margin-top:16px">On the road right now.</h2>
+          <p class="lede reveal">These drivers are on duty and taking requests. Updated every 30 seconds.</p>
+        </div>
+        <div class="live-grid" id="live-grid"><div class="driver-chip sk" style="height:70px"></div><div class="driver-chip sk" style="height:70px"></div><div class="driver-chip sk" style="height:70px"></div></div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head" style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;max-width:none">
+          <div>
+            <span class="eyebrow plain reveal">Reviews</span>
+            <h2 class="h2" data-split style="margin-top:12px">Riders say it best.</h2>
+          </div>
+          <a class="arrow-link reveal" href="/reviews">All reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="marquee" id="review-marquee"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="cta reveal">
+          <div class="cta-map" id="cta-map" aria-hidden="true"></div>
+          <span class="eyebrow">Ready when you are</span>
+          <h2 class="h2" style="margin-top:20px">Where to?</h2>
+          <p class="lede">Sign in with Discord and a driver can be on the way in under a minute.</p>
+          <div class="row">
+            <a class="btn lg" href="/ride">Request a ride</a>
+            <a class="btn lg ghost" href="/about#drive">Drive with us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+  <script src="/js/map.js?v=1"></script>
+  <script src="/js/core.js?v=1"></script>
+  <script src="/js/home.js?v=1"></script>
+</body>
+</html>
